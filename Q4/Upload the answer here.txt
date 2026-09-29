@@ -1,1 +1,47 @@
-Upload the answer here
+import java.util.Scanner;
+
+public class IT23306240Lab9Q4 {
+
+    
+    public static double calcFinalMark(double assignment, double exam) {
+        return (assignment * 0.3) + (exam * 0.7);
+    }
+
+    public static String findGrades(double mark) {
+        if (mark >= 75) {
+            return "A";
+        } else if (mark >= 60) {
+            return "B";
+        } else if (mark >= 50) {
+            return "C";
+        } else {
+            return "F";
+        }
+    }
+
+    public static void printDetails(String name, double finalMark, String grade) {
+        System.out.printf("%-10s %-12.2f %-5s\n", name, finalMark, grade);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Name     Final Mark   Grade");
+
+           for (int i = 1; i <= 5; i++) {
+            System.out.print("Enter student " + i + " name: ");
+            String name = input.next();
+
+            System.out.print("Enter assignment mark (out of 100): ");
+            double assignment = input.nextDouble();
+
+            System.out.print("Enter exam mark (out of 100): ");
+            double exam = input.nextDouble();
+
+            double finalMark = calcFinalMark(assignment, exam);
+            String grade = findGrades(finalMark);
+
+            printDetails(name, finalMark, grade);
+        }
+    }
+}
