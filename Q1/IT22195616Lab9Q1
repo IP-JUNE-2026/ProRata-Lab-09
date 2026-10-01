@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class IT22195616Lab9Q1 {
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Quadratic Equation");
+        
+        System.out.print("Enter value for a: ");
+        double a = input.nextDouble();
+
+        System.out.print("Enter value for b: ");
+        double b = input.nextDouble();
+
+        System.out.print("Enter value for c: ");
+        double c = input.nextDouble();
+
+        double discriminant = Math.pow(b, 2) - (4 * a * c);
+
+        if (discriminant > 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            
+            System.out.println("\nRoots are real and defferent :");
+            System.out.println("root1 = " + root1);
+            System.out.println("root2 = " + root2);
+            
+        } else if (discriminant == 0) {
+            double x = -b / (2 * a);
+            
+            System.out.println("\nThe equation has one real root:");
+            System.out.println("x = " + x);
+            
+        } else {
+            double realPart = -b / (2 * a);
+            double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
+            
+            System.out.println("\nThe equation has complex roots:");
+            System.out.println("root1 = " + realPart + " + " + imaginaryPart + "i");
+            System.out.println("root2 = " + realPart + " - " + imaginaryPart + "i");
+        }
+
+    }
+}
