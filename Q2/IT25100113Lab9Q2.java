@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class IT25100113Lab9Q2 {
+
+	public static double circleArea(double r){
+		return Math.PI*Math.pow(r, 2);
+	}
+
+	public static void main (String[] args) {
+		Scanner input = new Scanner (System.in);
+		System.out.print("Enter the radius of the circle: ");
+		double r = input.nextDouble();
+		double area = circleArea(r);
+		System.out.print("The area of the circle with radius " + r + " is : " + area);
+	}
+}
