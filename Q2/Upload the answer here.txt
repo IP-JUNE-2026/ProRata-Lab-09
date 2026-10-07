@@ -1,1 +1,24 @@
-Upload the answer here
+import java.util.Scanner;
+
+public class IT23158290Lab9Q2 {
+    
+    public static double circleArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the radius of the circle: ");
+        double r = input.nextDouble();
+
+        if (r > 0) {
+            double area = circleArea(r);
+            System.out.println("The area of the circle with radius " + r + " is : " + area);
+        } else if (r == 0) {
+            System.out.println("Radius is zero, so area is also zero.");
+        } else {
+            System.out.println("Invalid radius! Radius cannot be negative.");
+        }
+    }
+}
