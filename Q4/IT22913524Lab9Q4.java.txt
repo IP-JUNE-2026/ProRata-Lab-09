@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class IT22913524Lab9Q4 {
+
+    // a) final mark: 30% assignment + 70% exam
+    static double calcFinalMark(double assignment, double exam) {
+        return (assignment * 30 / 100) + (exam * 70 / 100);
+    }
+
+    // b) grade for the given final mark
+    static String findGrades(double finalMark) {
+        if (finalMark >= 75) {
+            return "A";
+        } else if (finalMark >= 60) {
+            return "B";
+        } else if (finalMark >= 50) {
+            return "C";
+        } else {
+            return "F";
+        }
+    }
+
+    // c) print the details of one student
+    static void printDetails(String name, double finalMark, String grade) {
+        System.out.printf("%-16s%-14.2f%s%n", name, finalMark, grade);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] names = new String[5];
+        double[] finalMarks = new double[5];
+
+        // d) read the details of 5 students
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+            System.out.print("Enter Name of Student " + (i + 1) + ": ");
+            names[i] = sc.next();
+
+            System.out.print("Enter Assignment Mark (out of 100) for " + names[i] + ": ");
+            double assignment = sc.nextDouble();
+
+            System.out.print("Enter Exam Paper Mark (out of 100) for " + names[i] + ": ");
+            double exam = sc.nextDouble();
+
+            finalMarks[i] = calcFinalMark(assignment, exam);
+        }
+
+        // display the results
+        System.out.println();
+        System.out.printf("%-16s%-14s%s%n", "Name", "Final Mark", "Grade");
+        for (int i = 0; i < 5; i++) {
+            printDetails(names[i], finalMarks[i], findGrades(finalMarks[i]));
+        }
+    }
+}
